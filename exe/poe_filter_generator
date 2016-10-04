@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "poe_filter_generator"
+
+PoeFilterGenerator::CLI.start

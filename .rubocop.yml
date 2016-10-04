@@ -1,0 +1,62 @@
+# ver: 0.8.0
+
+inherit_from:
+  - .rubocop_todo.yml
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'Rakefile'
+    - 'vendor/**/*'
+  DisplayCopNames: true
+Metrics/LineLength:
+  Max: 160
+Metrics/MethodLength:
+  Max: 20
+Metrics/AbcSize:
+  Max: 20
+Style/StringLiterals:
+  Enabled: false
+Style/AccessModifierIndentation:
+  EnforcedStyle: outdent
+Style/AlignParameters:
+  EnforcedStyle: with_first_parameter
+Style/Documentation:
+  Enabled: false
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+# for the following case.
+#   validates :project , presence: true
+#   validates :title   , presence: true
+#   validates :status  , presence: true
+Style/SpaceBeforeComma:
+  Enabled: false
+
+# for the following case.
+#   expect(json['title']).to    eq 'implement hoge'
+#   expect(json['status']).to   eq 'todo'
+#   expect(json['priority']).to eq 1
+#   expect(json['point']).to    eq 1
+Style/SpaceBeforeFirstArg:
+ Enabled: false
+
+# for the following case.
+#   db       = ENV['db']       || 'apollo'
+#   user     = ENV['user']     || 'postgres'
+#   password = ENV['password'] || ''
+Style/SpaceAroundOperators:
+  Enabled: false
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+Style/ExtraSpacing:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
