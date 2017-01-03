@@ -11,6 +11,8 @@ class PoeFilterGenerator::Element
     socket_group
     height
     width
+    identified
+    corrupted
 
     set_border_color
     set_background_color
