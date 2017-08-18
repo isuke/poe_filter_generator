@@ -19,6 +19,7 @@ class PoeFilterGenerator::Element
     set_text_color
     set_font_size
     play_alert_sound
+    play_alert_sound_positional
   ).freeze
 
   attr_accessor :name
