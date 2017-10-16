@@ -43,6 +43,7 @@ class PoeFilterGenerator::Element
   def merge(other)
     return self if other.nil?
     new_element = PoeFilterGenerator::Element.new("#{name} #{other.name}", @aliases)
+    new_element.showable = other.showable
     ATTRS.each do |attr|
       new_element.send("#{attr}=", other.send(attr) || send(attr))
     end
