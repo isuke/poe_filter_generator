@@ -7,7 +7,7 @@ class PoeFilterGenerator::Generator
 
     @aliases = {}
     return unless aliases_path
-    YAML.safe_load(File.open(aliases_path).read).each do |k, v|
+    YAML.safe_load(File.open(aliases_path).read, [], [], true).each do |k, v|
       @aliases[k] = v.flatten.map { |a| %("#{a}") }.join(' ')
     end
   end
