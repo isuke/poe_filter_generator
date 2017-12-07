@@ -13,6 +13,9 @@ class PoeFilterGenerator::Element
     width
     identified
     corrupted
+    elder_item
+    shaper_item
+    shaped_map
 
     set_border_color
     set_background_color
