@@ -1,7 +1,7 @@
 class PoeFilterGenerator::Filter
   attr_accessor :name
 
-  def initialize(name, export_path, aliases)
+  def initialize name, export_path, aliases
     @name = name
     @comments = []
     @export_path = export_path
@@ -31,11 +31,11 @@ class PoeFilterGenerator::Filter
     end
   end
 
-  def comment(str)
+  def comment str
     @comments << str
   end
 
-  def group(name)
+  def group name
     group = PoeFilterGenerator::Group.new(name, @aliases)
     yield group
     @groups << group

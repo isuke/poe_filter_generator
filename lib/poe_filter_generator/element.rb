@@ -1,5 +1,5 @@
 class PoeFilterGenerator::Element
-  ATTRS = %i(
+  ATTRS = %i[
     item_level
     drop_level
     quality
@@ -23,7 +23,7 @@ class PoeFilterGenerator::Element
     set_font_size
     play_alert_sound
     play_alert_sound_positional
-  ).freeze
+  ].freeze
 
   attr_accessor :name
   attr_accessor :showable
@@ -31,19 +31,19 @@ class PoeFilterGenerator::Element
     attr_accessor attr
   end
 
-  def initialize(name, aliases)
+  def initialize name, aliases
     @name = name
     @aliases = aliases
     @showable = true
   end
 
-  def generate(file)
+  def generate file
     file.puts "# #{@name}" if @name.present?
     file.puts showable ? 'Show' : 'Hide'
     put_attr(file)
   end
 
-  def merge(other)
+  def merge other
     return self if other.nil?
     new_element = PoeFilterGenerator::Element.new("#{name} #{other.name}", @aliases)
     new_element.showable = other.showable
@@ -55,7 +55,7 @@ class PoeFilterGenerator::Element
 
 private
 
-  def put_attr(file)
+  def put_attr file
     ATTRS.each do |attr|
       key   = attr == :klass ? 'Class' : attr.to_s.camelize
       value = send(attr)

@@ -1,12 +1,12 @@
 class PoeFilterGenerator::Group
-  def initialize(name, aliases)
+  def initialize name, aliases
     @name = name
     @aliases = aliases
     @elements = []
     @mixins = []
   end
 
-  def generate(file)
+  def generate file
     file.puts '#' * 80
     file.puts "# #{@name}"
     file.puts '#' * 80
@@ -24,7 +24,7 @@ class PoeFilterGenerator::Group
     file.puts
   end
 
-  def element(name = nil)
+  def element name = nil
     element = PoeFilterGenerator::Element.new(name, @aliases)
     yield element
     @elements << element

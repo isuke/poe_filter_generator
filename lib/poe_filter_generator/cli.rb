@@ -9,7 +9,7 @@ module PoeFilterGenerator
     default_command :generate
 
     desc "generate sample.ru /foo/bar/export/ aliases.yml", "generate filter."
-    def generate(source = './filter.ru',  export = '.', aliases = nil)
+    def generate source = './filter.ru',  export = '.', aliases = nil
       PoeFilterGenerator::Generator.new(source, export, aliases).generate
     end
   end

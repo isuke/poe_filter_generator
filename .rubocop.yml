@@ -1,37 +1,72 @@
-# ver: 0.8.0
+# ver: 0.8.5
 
 inherit_from:
   - .rubocop_todo.yml
+
 AllCops:
+  TargetRubyVersion: 2.4
   Exclude:
-    - 'bin/**/*'
-    - 'db/schema.rb'
-    - 'db/migrate/*'
     - 'Rakefile'
+    - 'bin/**/*'
     - 'vendor/**/*'
   DisplayCopNames: true
+
+Rails:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 160
+
 Metrics/MethodLength:
   Max: 20
+
 Metrics/AbcSize:
-  Max: 20
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
 Style/StringLiterals:
   Enabled: false
-Style/AccessModifierIndentation:
-  EnforcedStyle: outdent
-Style/AlignParameters:
-  EnforcedStyle: with_first_parameter
+
+Style/AsciiComments:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
-Style/EmptyLinesAroundBlockBody:
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Layout/AlignParameters:
+  EnforcedStyle: with_first_parameter
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Layout/ExtraSpacing:
   Enabled: false
 
 # for the following case.
 #   validates :project , presence: true
 #   validates :title   , presence: true
 #   validates :status  , presence: true
-Style/SpaceBeforeComma:
+Layout/SpaceBeforeComma:
   Enabled: false
 
 # for the following case.
@@ -39,24 +74,12 @@ Style/SpaceBeforeComma:
 #   expect(json['status']).to   eq 'todo'
 #   expect(json['priority']).to eq 1
 #   expect(json['point']).to    eq 1
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
  Enabled: false
 
 # for the following case.
 #   db       = ENV['db']       || 'apollo'
 #   user     = ENV['user']     || 'postgres'
 #   password = ENV['password'] || ''
-Style/SpaceAroundOperators:
-  Enabled: false
-
-Style/TrailingCommaInLiteral:
-  EnforcedStyleForMultiline: comma
-Style/TrailingCommaInArguments:
-  EnforcedStyleForMultiline: comma
-Style/ExtraSpacing:
-  Enabled: false
-Style/ClassAndModuleChildren:
-  Enabled: false
-
-Style/AsciiComments:
+Layout/SpaceAroundOperators:
   Enabled: false
