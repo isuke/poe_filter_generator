@@ -14,7 +14,7 @@ class PoeFilterGenerator::Generator
 
   def generate
     # rubocop:disable Security/Eval
-    eval(File.read(@source_path))
+    eval(File.read(@source_path), binding, @source_path)
     # rubocop:enable Security/Eval
   end
 
