@@ -18,8 +18,12 @@ class PoeFilterGenerator::Element
     shaped_map
 
     set_border_color
+    set_border_color_alpha
     set_background_color
+    set_background_color_alpha
     set_text_color
+    set_text_color_alpha
+    set_color_alpha
     set_font_size
     play_alert_sound
     play_alert_sound_positional
@@ -55,12 +59,41 @@ class PoeFilterGenerator::Element
 
 private
 
+  def get_key attr
+    attr == :klass ? 'Class' : attr.to_s.camelize
+  end
+
+  def get_value attr, key
+    if key&.match?(/Color/)
+      v = send(attr)
+      if v&.match?(/[0-9]{1,3} [0-9]{1,3} [0-9]{1,3} [0-9]{1,3}/)
+        STDERR.puts "[Error] '#{v}' is setted alpha. Use '#{key.underscore}_alpha' instead."
+      else
+        merge_color_value attr, v
+      end
+    else
+      send(attr)
+    end
+  end
+
+  def merge_color_value attr, value
+    if send("#{attr}_alpha").present?
+      "#{value} #{send("#{attr}_alpha")}"
+    elsif send("set_color_alpha").present?
+      "#{value} #{send('set_color_alpha')}"
+    else
+      value
+    end
+  end
+
   def put_attr file
     ATTRS.each do |attr|
-      key   = attr == :klass ? 'Class' : attr.to_s.camelize
-      value = send(attr)
+      key = get_key attr
 
-      next unless value.present?
+      next if key&.match?(/ColorAlpha/)
+      next unless send(attr).present?
+
+      value = get_value attr, key
 
       @aliases.each do |alias_key, alias_value|
         value.gsub!(alias_key, alias_value) if value.respond_to?(:gsub!)
