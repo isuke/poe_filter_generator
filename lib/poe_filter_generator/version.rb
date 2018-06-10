@@ -1,3 +1,3 @@
 module PoeFilterGenerator
-  VERSION = "0.9.8".freeze
+  VERSION = "0.9.10".freeze
 end

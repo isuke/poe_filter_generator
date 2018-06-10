@@ -16,6 +16,9 @@ class PoeFilterGenerator::Element
     elder_item
     shaper_item
     shaped_map
+    has_explicit_mod
+    stack_size
+    gem_level
 
     set_border_color
     set_border_color_alpha
