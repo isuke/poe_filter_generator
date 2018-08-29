@@ -1,36 +1,40 @@
 class PoeFilterGenerator::Element
   ATTRS = %i[
-    item_level
+    base_type
+    corrupted
     drop_level
+    elder_item
+    gem_level
+    has_explicit_mod
+    height
+    identified
+    item_level
+    klass
+    linked_sockets
+    map_tier
     quality
     rarity
-    klass
-    base_type
-    sockets
-    linked_sockets
-    socket_group
-    height
-    width
-    identified
-    corrupted
-    elder_item
-    shaper_item
     shaped_map
-    has_explicit_mod
+    shaper_item
+    socket_group
+    sockets
     stack_size
-    gem_level
+    width
 
-    set_border_color
-    set_border_color_alpha
-    set_background_color
-    set_background_color_alpha
-    set_text_color
-    set_text_color_alpha
-    set_color_alpha
-    set_font_size
+    custom_alert_sound
+    disable_drop_sound
+    minimap_icon
     play_alert_sound
     play_alert_sound_positional
-    disable_drop_sound
+    play_effect
+    set_background_color
+    set_background_color_alpha
+    set_border_color
+    set_border_color_alpha
+    set_color_alpha
+    set_font_size
+    set_text_color
+    set_text_color_alpha
   ].freeze
 
   attr_accessor :name
