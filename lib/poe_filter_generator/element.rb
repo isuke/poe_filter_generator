@@ -72,8 +72,10 @@ private
   end
 
   def get_value attr, key
+    v = send(attr)
+    v = v.join(' ') if v.is_a? Array
+
     if key&.match?(/Color/)
-      v = send(attr)
       if v&.match?(/[0-9]{1,3} [0-9]{1,3} [0-9]{1,3} [0-9]{1,3}/)
         STDERR.puts "[Error] '#{v}' is setted alpha. Use '#{key.underscore}_alpha' instead."
       else
