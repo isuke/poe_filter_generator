@@ -12,6 +12,7 @@ class PoeFilterGenerator::Element
     klass
     linked_sockets
     map_tier
+    prophecy
     quality
     rarity
     shaped_map
